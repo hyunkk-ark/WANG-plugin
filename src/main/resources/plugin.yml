@@ -1,0 +1,30 @@
+name: WANG-Plugin
+version: 1.0.0
+main: io.wang.enterprise.plugin.WANGPlugin
+api-version: "1.21"
+load: POSTWORLD
+authors:
+  - AULA WANG
+description: "Enterprise Bedrock & Java Custom Item Auto-Bridge Plugin for Paper 1.21.11"
+website: "https://github.com/hyunkk-ark/WANG-plugin"
+softdepend:
+  - Oraxen
+  - ModelEngine
+  - MythicMobs
+  - AdvancedEnchantments
+  - AuthMe
+  - Geyser-Spigot
+  - floodgate
+commands:
+  wang:
+    description: "Main command for WANG Enterprise Plugin and Bedrock Bridge"
+    permission: wang.admin
+    permission-message: "You do not have permission to execute WANG enterprise commands."
+    aliases: [wangbridge, bedrockbridge]
+permissions:
+  wang.admin:
+    description: "Allows access to admin commands and reload functionality."
+    default: op
+  wang.bridge.bypass:
+    description: "Bypass automatic Bedrock custom item display adjustments."
+    default: false

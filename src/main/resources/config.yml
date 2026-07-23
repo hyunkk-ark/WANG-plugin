@@ -1,0 +1,41 @@
+# ==============================================================================
+# WANG ENTERPRISE PLUGIN DEVELOPMENT SPECIFICATION - CONFIGURATION
+# Author: AULA WANG
+# Compatibility: Paper 1.21.11 | Java 21
+# ==============================================================================
+
+general:
+  debug: false
+  log-prefix: "&8[&bWANG-Plugin&8] &r"
+
+bedrock-bridge:
+  # Automatically synchronize and map Oraxen/ModelEngine items for Bedrock (Geyser/Floodgate) players
+  # so no extra manual configurations are required on the Bedrock side ("cukup mengsetting java saja").
+  enabled: true
+  
+  # Automatically generate and register Geyser Custom Item Definitions when Oraxen reloads items.
+  auto-register-geyser-items: true
+  
+  # Automatically format custom item lore and display name for Bedrock players when viewed in inventory.
+  auto-format-bedrock-inventory: true
+  
+  # Add indicator prefix/suffix to custom items for Bedrock players if CustomModelData cannot be rendered natively.
+  bedrock-item-indicator: "&7[Custom Item] &r"
+  
+  # UUID detection fallback mode (if Floodgate API is not installed directly on Spigot/Paper server).
+  # Bedrock players via Floodgate typically have UUIDs starting with 00000000-0000-0000-...
+  uuid-prefix-fallback: true
+  uuid-prefix: "00000000-0000-0000-"
+
+integrations:
+  oraxen:
+    enabled: true
+    sync-on-item-load: true
+    sync-on-pack-generate: true
+  modelengine:
+    enabled: true
+    fallback-entity-metadata: true
+  mythicmobs:
+    enabled: true
+  advanced-enchantments:
+    enabled: true

@@ -1,0 +1,36 @@
+plugins {
+    id 'java'
+}
+
+group = 'io.wang.enterprise'
+version = '1.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://repo.papermc.io/repository/maven-public/' }
+}
+
+dependencies {
+    compileOnly 'io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT'
+    compileOnly fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+jar {
+    archiveFileName = 'WANG-BedrockBridge-1.0.0.jar'
+}
+
+task copyToRelease(type: Copy) {
+    from jar
+    into 'release'
+}
+
+build.finalizedBy(copyToRelease)
